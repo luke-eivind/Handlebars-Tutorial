@@ -5,7 +5,7 @@ window.onload = function doHandle(){
 
   var data = template({name: 'Luke', street: '429 Chateau Grimaldi', city: 'Mandeville', state: 'LA'});
 
-  document.getElementById("luke").innerHTML += data;
+  document.getElementById("myData").innerHTML += data;
 
   console.log('hi');
 }

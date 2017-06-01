@@ -8,9 +8,38 @@
   </head>
   <body>
 
-    <div id="luke"></div>
+    <div id='myData'></div>
+    <div id='quoteData'></div>
+    <script id='quote-template' type="text/x-handlebars-template">
+      <h3>Favorite {{name}} Quotes </h3>
+
+      <ol>
+
+        {{#each quotes}}
+        <li>{{quote}}</li>
+        {{/each}}
+      </ol>
+      <br />
+      <h2>BIO</h2>
+      {{{yogiBio}}}<br /><br />
+    </script>
+
+
+    <script type="text/javascript">
+      var quoteInfo = document.getElementById('quote-template').innerHTML;
+      var template = Handlebars.compile(quoteInfo);
+      var quoteData = template({
+        name: 'Luke Freeman',
+        quotes: [
+          {quote: 'Hi'},
+          {quote: 'Hello'},
+          {quote: 'I am an alien'},
+          {quote: 'Does that make sense?'}
+        ],
+        yogiBio: '<i>Luke was born in a small town in Northern California called Turlock.  This is where he lived until he was fourteen years old. At this point, he moved with his brother, sister, and mother to Louisiana.<i>'
+      });
+      document.getElementById('quoteData').innerHTML += quoteData;
+    </script>
 
   </body>
-  <!--Had to place script here because div must be created first! Ask for alternative on StackOverflow-->
-
 </html>
